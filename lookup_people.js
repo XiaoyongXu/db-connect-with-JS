@@ -13,10 +13,6 @@ const client = new pg.Client({
   ssl      : settings.ssl
 });
 
-
-
-
-
 client.connect((err) => {
   function findFamousPeople(client,data){
     const query = "SELECT first_name,last_name,birthdate FROM famous_people WHERE famous_people.first_name=$1 OR famous_people.last_name=$1 ";
