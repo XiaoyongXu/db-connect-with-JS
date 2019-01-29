@@ -12,8 +12,9 @@ const knex = require('knex')({
 const data = process.argv.slice(2)[0];
 
 console.log('searching...');
-knex.select('*').from('famous_people')
-  .where('first_name', '=', data,'OR','last_name','=',data)
+knex('famous_people')
+  .where('first_name',data)
+  .orWhere('last_name',data)
   .asCallback(function(err, rows) {
     if (err){
       console.log(err);
