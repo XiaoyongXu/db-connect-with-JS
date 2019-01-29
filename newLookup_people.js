@@ -24,7 +24,9 @@ knex('famous_people')
       rows.forEach((element,index) => {
         const birthDay = new Date(element.birthdate);
         console.log(`-${index+1}: ${element.first_name} ${element.last_name}, born '${birthDay.getFullYear()}-${(birthDay.getMonth()+1).toString().padStart(2,'0')}-${birthDay.getDate().toString().padStart(2,'0')}'`);
-      });
+      }); 
+    }else{
+      console.log("Can not find");
     }
   }).finally(function() {
     knex.destroy();
