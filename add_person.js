@@ -1,16 +1,7 @@
-const settings = require("./settings"); 
-
 const [firstName,lastName, dateOfBirth] = process.argv.slice(2);
 
-const knex = require('knex')({
-  client: 'pg',
-  connection: {
-    host : settings.hostname,
-    user : settings.user,
-    password : settings.password,
-    database : settings.database
-  }
-});
+const config = require('./knexfile');
+const knex = require('knex')(config);
 
 knex.insert({
   first_name: firstName,
